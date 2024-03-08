@@ -166,7 +166,7 @@ class Dataset:
 
         for column in range(self.data.shape[1] - 1):
             if self.data[column].dtype == "int64":
-                if len(np.unique(self.data[column])) <= self.max_unique_value:
+                if len(np.unique(self.data[column])) >= self.max_unique_value:
                     self._set_att_to_discretize(column, 'int64')
 
             elif self.data[column].dtype == "float64":
@@ -233,6 +233,27 @@ class Dataset:
                 x_train[:, self.get_attributes_to_discretize()] = x_train_disc
                 x_test[:, self.get_attributes_to_discretize()] = x_test_disc
 
+                for column in range(x_train.shape[1]):
+                    unique_values = list(np.unique(x_train[:, column]))
+                    unique_values.extend(np.unique(x_test[:, column]))
+
+                    map_itens = {x[1]: x[0] for x in enumerate(np.unique(unique_values))}
+
+                    x_train[:, column] = vec_translate(x_train[:, column], map_itens)
+                    x_test[:, column] = vec_translate(x_test[:, column], map_itens)
+
+                keep_columns = np.where(
+                    [len(np.unique(x_train[:, c])) > 1 for c in range(x_train.shape[1])]
+                )[0]
+
+                x_train = x_train[:, keep_columns]
+                x_test = x_test[:, keep_columns]
+
+                x_train = x_train.astype("int").astype("str")
+                x_test = x_test.astype("int",).astype("str")
+                y_train = y_train.astype("int").astype("str")
+                y_test = y_test.astype("int").astype("str")
+
                 self.data_folds[i] = [x_train, y_train, x_test, y_test]
 
     def save(self):
@@ -287,11 +308,11 @@ if __name__ == "__main__":
     balance = 'balanced'
     k_folds = 10
 
-
     datasets = sorted(os.listdir(f"keel_ds/data/{balance}/raw/"))
 
     info = []
 
+    # datasets = ['australian.dat']
     for dataset in datasets:
         # try:
         print(dataset)

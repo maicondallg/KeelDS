@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "keel_ds"
-version = "0.1.7"
+version = "0.1.9"
 description = ""
 authors = ["Maicondalllg <maicon.dallagnol@unesp.br>"]
 readme = "README.md"

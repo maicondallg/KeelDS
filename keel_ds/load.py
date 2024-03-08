@@ -18,12 +18,28 @@ def list_data():
 def load_data(data, imbalanced=False):
     if imbalanced:
         try:
-            return pickle.load(open(os.path.join(BASE_DIR, f"data/imbalanced/processed/{data}.pkl"), "rb"))
+            data = []
+            npz = np.load(os.path.join(BASE_DIR, f"data/imbalanced/processed/{data}.npz"))
+
+            for fold in range(0, len(npz), 4):
+                x_train, y_train, x_test, y_test = npz[npz.files[fold]], npz[npz.files[fold+1]], npz[npz.files[fold+2]], \
+                npz[npz.files[fold+3]]
+            data.append((x_train, y_train, x_test, y_test))
+
+            return data
+
         except:
             raise FileNotFoundError(f"File {data}.pkl not found")
 
     else:
         try:
-            return pickle.load(open(os.path.join(BASE_DIR, f"data/balanced/processed/{data}.pkl"), "rb"))
+            npz = np.load(os.path.join(BASE_DIR, f"data/balanced/processed/{data}.npz"))
+            data = []
+            for fold in range(0, len(npz), 4):
+                x_train, y_train, x_test, y_test = npz[npz.files[fold]], npz[npz.files[fold+1]], npz[npz.files[fold+2]], \
+                    npz[npz.files[fold+3]]
+                data.append((x_train, y_train, x_test, y_test))
+
+            return data
         except:
             raise FileNotFoundError(f"File {data}.pkl not found")
