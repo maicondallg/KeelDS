@@ -1,10 +1,16 @@
 from keel_ds import load_data
+import numpy as np
+from catboost import CatBoostClassifier
 
 if __name__ == '__main__':
+    file_name = 'iris'
+    folds = load_data(file_name)
 
-    file_name = 'vehicle1'
+    evaluations = []
+    for x_train, y_train, x_test, y_test in folds:
+        model = CatBoostClassifier(verbose=False)
+        model.fit(x_train, y_train)
+        evaluation = model.score(x_test, y_test)
+        evaluations.append(evaluation)
 
-    folds = load_data(file_name, imbalanced=True) # Load the imbalanced dataset with 10 folds
-
-    x_train, y_train, x_test, y_test = folds[0] # 0 is the first fold
-    print(x_train.shape, y_train.shape, x_test.shape, y_test.shape) # (546, 18) (546,) (61, 18) (61,)
+    print(np.mean(evaluations))
