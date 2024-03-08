@@ -19,7 +19,7 @@ pip install keel-ds
 ```
 
 ### Usage
-```bash
+
 
 ```python
 from keel_ds import load_data
