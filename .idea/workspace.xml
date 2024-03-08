@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="add0da4b-924b-4ac2-adff-9f34e4795008" name="Changes" comment="Upload data processed">
+      <change afterPath="$PROJECT_DIR$/pyproject2.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_load_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/keel_ds/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/adult.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/appendicitis.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/automobile.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/bands.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/breast.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/bupa.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/chess.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/coil2000.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/connect-4.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/dermatology.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/ecoli.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/flare.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/glass.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/haberman.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/hayes-roth.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/heart.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/hepatitis.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/housevotes.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/ionosphere.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/iris.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/kr-vs-k.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/led7digit.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/lymphography.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/marketing.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/movement_libras.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/mushroom.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/newthyroid.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/nursery.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/optdigits.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/page-blocks.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/penbased.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/pima.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/ring.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/saheart.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/satimage.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/segment.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/shuttle.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/sonar.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/spambase.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/splice.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/texture.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/thyroid.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/tic-tac-toe.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/twonorm.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/vehicle.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/vowel.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/wdbc.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/winequality-red.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/wisconsin.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/processed/zoo.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/abalone.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/adult.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/appendicitis.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/automobile.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/balance.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/car.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/census.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/cleveland.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/coil2000.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/connect-4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/dermatology.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/ecoli.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/fars.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/flare.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/glass.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/haberman.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/hepatitis.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/kddcup.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/kr-vs-k.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/lymphography.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/newthyroid.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/nursery.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/page-blocks.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/poker.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/post-operative.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/shuttle.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/spectfheart.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/thyroid.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/winequality-red.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/winequality-white.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/yeast.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/balanced/raw/zoo.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/abalone-17_vs_7-8-9-10.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/abalone-19_vs_10-11-12-13.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/abalone-20_vs_8-9-10.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/abalone-21_vs_8.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/abalone-3_vs_11.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/abalone19.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/abalone9-18.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/car-good.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/car-vgood.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/cleveland-0_vs_4.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/dermatology-6.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/ecoli-0-1-3-7_vs_2-6.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/ecoli-0-1-4-6_vs_5.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/ecoli-0-1-4-7_vs_2-3-5-6.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/ecoli-0-1-4-7_vs_5-6.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/ecoli-0-1_vs_2-3-5.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/ecoli-0-1_vs_5.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/ecoli-0-2-3-4_vs_5.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/ecoli-0-2-6-7_vs_3-5.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/ecoli-0-3-4-6_vs_5.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/ecoli-0-3-4-7_vs_5-6.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/ecoli-0-3-4_vs_5.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/ecoli-0-4-6_vs_5.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/ecoli-0-6-7_vs_3-5.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/ecoli-0-6-7_vs_5.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/ecoli-0_vs_1.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/ecoli1.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/ecoli2.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/ecoli3.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/ecoli4.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/flare-F.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/glass-0-1-2-3_vs_4-5-6.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/glass-0-1-4-6_vs_2.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/glass-0-1-5_vs_2.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/glass-0-1-6_vs_2.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/glass-0-1-6_vs_5.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/glass-0-4_vs_5.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/glass-0-6_vs_5.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/glass0.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/glass1.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/glass2.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/glass4.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/glass5.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/glass6.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/haberman.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/iris0.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/kddcup-buffer_overflow_vs_back.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/kddcup-guess_passwd_vs_satan.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/kddcup-land_vs_portsweep.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/kddcup-land_vs_satan.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/kddcup-rootkit-imap_vs_back.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/kr-vs-k-one_vs_fifteen.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/kr-vs-k-three_vs_eleven.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/kr-vs-k-zero-one_vs_draw.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/kr-vs-k-zero_vs_eight.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/kr-vs-k-zero_vs_fifteen.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/led7digit-0-2-4-5-6-7-8-9_vs_1.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/lymphography-normal-fibrosis.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/new-thyroid1.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/new-thyroid2.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/page-blocks-1-3_vs_4.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/page-blocks0.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/pima.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/poker-8-9_vs_5.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/poker-8-9_vs_6.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/poker-8_vs_6.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/poker-9_vs_7.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/segment0.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/shuttle-2_vs_5.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/shuttle-6_vs_2-3.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/shuttle-c0-vs-c4.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/shuttle-c2-vs-c4.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/vehicle0.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/vehicle1.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/vehicle2.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/vehicle3.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/vowel0.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/winequality-red-3_vs_5.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/winequality-red-4.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/winequality-red-8_vs_6-7.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/winequality-red-8_vs_6.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/winequality-white-3-9_vs_5.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/winequality-white-3_vs_7.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/winequality-white-9_vs_4.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/wisconsin.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/yeast-0-2-5-6_vs_3-7-8-9.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/yeast-0-2-5-7-9_vs_3-6-8.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/yeast-0-3-5-9_vs_7-8.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/yeast-0-5-6-7-9_vs_4.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/yeast-1-2-8-9_vs_7.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/yeast-1-4-5-8_vs_7.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/yeast-1_vs_7.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/yeast-2_vs_4.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/yeast-2_vs_8.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/yeast1.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/yeast3.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/yeast4.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/yeast5.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/yeast6.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/data/imbalanced/processed/zoo-3.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keel_ds/load.py" beforeDir="false" afterPath="$PROJECT_DIR$/keel_ds/load.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/process_imbalanced.py" beforeDir="false" afterPath="$PROJECT_DIR$/process_imbalanced.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2dKP9ti14SO60Zv40lbXA9X6q5w" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for test_load_data.test_load_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.process_balanced.executor&quot;: &quot;Run&quot;,
+    &quot;Python.process_balanced2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.process_imbalanced.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/maicon/Documentos/KeelDS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/keel_ds" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.process_imbalanced">
+    <configuration name="process_balanced" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="KeelDS" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/process_balanced.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="process_balanced2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="KeelDS" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/process_balanced2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="process_imbalanced" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="KeelDS" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/process_imbalanced.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_load_data.test_load_data" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="KeelDS" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_load_data.test_load_data&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.process_imbalanced" />
+        <item itemvalue="Python tests.Python tests for test_load_data.test_load_data" />
+        <item itemvalue="Python.process_balanced2" />
+        <item itemvalue="Python.process_balanced" />
+        <item itemvalue="Python.process_imbalanced" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-d68999036c7f-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.14475.56" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="add0da4b-924b-4ac2-adff-9f34e4795008" name="Changes" comment="" />
+      <created>1709753648185</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709753648185</updated>
+      <workItem from="1709753649232" duration="3025000" />
+      <workItem from="1709825258555" duration="7606000" />
+      <workItem from="1709838952082" duration="183000" />
+      <workItem from="1709839147570" duration="5626000" />
+      <workItem from="1709910263210" duration="7245000" />
+    </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1709753761865</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709753761865</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Raw data upload">
+      <option name="closed" value="true" />
+      <created>1709753864813</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709753864813</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Upload data processed">
+      <option name="closed" value="true" />
+      <created>1709838641371</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709838641371</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Upload data processed">
+      <option name="closed" value="true" />
+      <created>1709838772745</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709838772745</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit" />
+    <MESSAGE value="Raw data upload" />
+    <MESSAGE value="Upload data processed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Upload data processed" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/process_imbalanced.py</url>
+          <line>270</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/process_imbalanced.py</url>
+          <line>303</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/process_imbalanced.py</url>
+          <line>298</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/KeelDS$process_balanced.coverage" NAME="process_balanced Coverage Results" MODIFIED="1709832727812" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/KeelDS$process_balanced2.coverage" NAME="process_balanced2 Coverage Results" MODIFIED="1709832890224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/KeelDS$process_imbalanced.coverage" NAME="process_imbalanced Coverage Results" MODIFIED="1709925884363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/KeelDS$.coverage" NAME=" Coverage Results" MODIFIED="1709910393972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+  </component>
+</project>
