@@ -5,20 +5,18 @@
 
 KEEL [https://sci2s.ugr.es/keel/datasets.php] is a popular repository for machine learning datasets. This package provides a simple way to load datasets from the KEEL repository. The package also provides a simple way to load the datasets in a cross-validation setting.
 
-This is a simple package that provides a simple way to load datasets from the KEEL repository. The package also provides a simple way to load the datasets in a cross-validation setting.
-
 ### Features
 
 - Load datasets available in the KEEL repository with a single line of code.
-- Load datasets already split into train and test sets and with discretization (with Fayyad algorithm - MDLP[https://github.com/hlin117/mdlp-discretization]) applied.
+- Load datasets already split into train and test sets and with discretization (with Fayyad algorithm - MDLP[https://github.com/hlin117/mdlp-discretization]).
 
 ### Installation
 ----------------
 
 Dependencies
 
-- Python (>= 3.6)
-- Pandas (>= 1.0.0)
+- Python (>= 3.8)
+- Pandas (>= 1.2.4)
 
 You can install KeelDS using pip:
 
