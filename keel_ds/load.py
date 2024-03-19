@@ -9,9 +9,8 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 def list_data():
     path1 = os.path.join(BASE_DIR, "data/imbalanced/processed")
     path2 = os.path.join(BASE_DIR, "data/balanced/processed")
-    aux = os.listdir(path2)
-    aux.append(os.listdir(path1))
-
+    aux = {'balanced': os.listdir(path2)}
+    aux.update({'imbalanced':  os.listdir(path1)})
     return aux
 
 

@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "keel_ds"
-version = "0.1.10"
-description = ""
+version = "0.1.12"
+description = "KeelDS is a package to load some datasets from KEEL repository with some normalizations and with split and discretization options."
 authors = ["Maicondalllg <maicon.dallagnol@unesp.br>"]
 readme = "README.md"
 
@@ -12,7 +12,7 @@ include = ["keel_ds/data/balanced/processed/*", "keel_ds/data/imbalanced/process
 
 [tool.poetry.dependencies]
 python = "^3.8"
-pandas = "^1.2.4"
+pandas = "^2.2.0"
 
 
 [build-system]
