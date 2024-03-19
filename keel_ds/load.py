@@ -9,8 +9,8 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 def list_data():
     path1 = os.path.join(BASE_DIR, "data/imbalanced/processed")
     path2 = os.path.join(BASE_DIR, "data/balanced/processed")
-    aux = {'balanced': os.listdir(path2)}
-    aux.update({'imbalanced':  os.listdir(path1)})
+    aux = {'balanced': sorted([x[:-4] for x in os.listdir(path2)])}
+    aux.update({'imbalanced':  sorted([x[:-4] for x in os.listdir(path1)])})
     return aux
 
 
