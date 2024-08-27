@@ -1,4 +1,4 @@
-from keel_ds import load_data, list_data,
+from keel_ds import load_data
 import numpy as np
 from catboost import CatBoostClassifier
 
