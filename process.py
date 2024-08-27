@@ -203,6 +203,31 @@ class Dataset:
 
         self.data_folds = data_folds
 
+    def _transform_to_sequencial(self, x_train, y_train, x_test, y_test):
+        for column in range(x_train.shape[1]):
+            unique_values = list(np.unique(x_train[:, column]))
+            unique_values.extend(np.unique(x_test[:, column]))
+
+            map_itens = {x[1]: x[0] for x in enumerate(np.unique(unique_values))}
+
+            x_train[:, column] = vec_translate(x_train[:, column], map_itens)
+            x_test[:, column] = vec_translate(x_test[:, column], map_itens)
+
+        keep_columns = np.where(
+            [len(np.unique(x_train[:, c])) > 1 for c in range(x_train.shape[1])]
+        )[0]
+
+        x_train = x_train[:, keep_columns]
+        x_test = x_test[:, keep_columns]
+
+        x_train = x_train.astype("int").astype("str")
+        x_test = x_test.astype("int", ).astype("str")
+        y_train = y_train.astype("int").astype("str")
+        y_test = y_test.astype("int").astype("str")
+
+        return x_train, y_train, x_test, y_test
+
+
     def discretize(self):
         """
         Discretize the dataset using the MDLP algorithm in the attributes set to discretize
@@ -211,7 +236,16 @@ class Dataset:
 
         # Check if doesn't have any attribute to discretize
         if not self.get_attributes_to_discretize():
-            pass
+            for i, fold in enumerate(self.data_folds):
+
+                x_train, y_train, x_test, y_test = fold
+
+                le = LabelEncoder()
+                y_train = le.fit_transform(y_train)
+                y_test = le.transform(y_test)
+
+                x_train, y_train, x_test, y_test = self._transform_to_sequencial(x_train, y_train, x_test, y_test)
+                self.data_folds[i] = [x_train, y_train, x_test, y_test]
 
         else:
             for i, fold in enumerate(self.data_folds):
@@ -233,27 +267,7 @@ class Dataset:
                 x_train[:, self.get_attributes_to_discretize()] = x_train_disc
                 x_test[:, self.get_attributes_to_discretize()] = x_test_disc
 
-                for column in range(x_train.shape[1]):
-                    unique_values = list(np.unique(x_train[:, column]))
-                    unique_values.extend(np.unique(x_test[:, column]))
-
-                    map_itens = {x[1]: x[0] for x in enumerate(np.unique(unique_values))}
-
-                    x_train[:, column] = vec_translate(x_train[:, column], map_itens)
-                    x_test[:, column] = vec_translate(x_test[:, column], map_itens)
-
-                keep_columns = np.where(
-                    [len(np.unique(x_train[:, c])) > 1 for c in range(x_train.shape[1])]
-                )[0]
-
-                x_train = x_train[:, keep_columns]
-                x_test = x_test[:, keep_columns]
-
-                x_train = x_train.astype("int").astype("str")
-                x_test = x_test.astype("int",).astype("str")
-                y_train = y_train.astype("int").astype("str")
-                y_test = y_test.astype("int").astype("str")
-
+                x_train, y_train, x_test, y_test = self._transform_to_sequencial(x_train, y_train, x_test, y_test)
                 self.data_folds[i] = [x_train, y_train, x_test, y_test]
 
     def save(self):
@@ -289,7 +303,6 @@ class Dataset:
         for x_train, y_train, x_test, y_test in self.data_folds:
             itens_unicos = 0
             for coluna in range(x_train.shape[1]):
-                # print(x_train, coluna)
                 conjunto_treino = list(np.unique(x_train[:, coluna]))
                 conjunto_teste = list(np.unique(x_test[:, coluna]))
                 conjunto_treino.extend(conjunto_teste)
@@ -312,10 +325,9 @@ if __name__ == "__main__":
 
     info = []
 
-    # datasets = ['australian.dat']
+    # datasets = ['car-good.dat']
     for dataset in datasets:
         # try:
-        print(dataset)
         ds = Dataset(dataset[:-4], f"keel_ds/data/{balance}/raw/" + dataset, balance=balance)
         ds.set_attributes_to_discretize()
         ds.split(k_folds=k_folds)
