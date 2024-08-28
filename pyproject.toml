@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "keel-ds"
-version = "0.2.2"
+version = "0.2.4"
 description = "KeelDS is a package to load some datasets from KEEL repository with some normalizations and with split and discretization options."
 authors = ["Maicondalllg <maicon.dallagnol@unesp.br>"]
 readme = "README.md"
@@ -16,9 +16,8 @@ homepage = "https://github.com/maicondallg/KeelDS"
 documentation = "https://github.com/maicondallg/KeelDS#readme"
 
 [tool.poetry.dependencies]
-python = "^3.12"
-pandas = "^2.0"
-numpy = "^2.0"
+python = "^3.11"
+pandas = "^2.2"
 
 
 [build-system]
