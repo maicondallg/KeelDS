@@ -220,10 +220,10 @@ class Dataset:
         x_train = x_train[:, keep_columns]
         x_test = x_test[:, keep_columns]
 
-        x_train = x_train.astype("int").astype("str")
-        x_test = x_test.astype("int", ).astype("str")
-        y_train = y_train.astype("int").astype("str")
-        y_test = y_test.astype("int").astype("str")
+        x_train = x_train.astype(np.int8)
+        x_test = x_test.astype(np.int8)
+        y_train = y_train.astype(np.int8)
+        y_test = y_test.astype(np.int8)
 
         return x_train, y_train, x_test, y_test
 
@@ -325,7 +325,7 @@ if __name__ == "__main__":
 
     info = []
 
-    # datasets = ['car-good.dat']
+    datasets = ['australian.dat']
     for dataset in datasets:
         # try:
         ds = Dataset(dataset[:-4], f"keel_ds/data/{balance}/raw/" + dataset, balance=balance)

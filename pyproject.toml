@@ -1,25 +1,32 @@
-[tool.poetry]
+[project]
 name = "keel-ds"
-version = "0.2.4"
+version = "0.2.5"
 description = "KeelDS is a package to load some datasets from KEEL repository with some normalizations and with split and discretization options."
-authors = ["Maicondalllg <maicon.dallagnol@unesp.br>"]
+authors = [
+    {name = "Maicondalllg", email = "maicon.dallagnol@unesp.br"}
+]
 readme = "README.md"
-
-
-packages = [{include = "keel_ds"}]
-include = ["keel_ds/data/balanced/processed/*", "keel_ds/data/imbalanced/processed/*", "keel_ds/data/presets/*"]
-
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.26,<2",
+    "pandas>=2.1,<3.0",
+    "scikit-learn>=1.5,<1.6",
+    "mdlp-discretization @ git+https://github.com/maicondallg/mdlp-discretization.git@old-version",
+]
 
 # Added GitHub project information
-repository = "https://github.com/maicondallg/KeelDS"
-homepage = "https://github.com/maicondallg/KeelDS"
-documentation = "https://github.com/maicondallg/KeelDS#readme"
+[project.urls]
+Repository = "https://github.com/maicondallg/KeelDS"
+Homepage = "https://github.com/maicondallg/KeelDS"
+Documentation = "https://github.com/maicondallg/KeelDS#readme"
 
-[tool.poetry.dependencies]
-python = "^3.11"
-pandas = "^2.2"
+
+[tool.uv]
+build-constraint-dependencies = [
+    "numpy<2",
+]
 
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["meson-python>=0.14.0", "meson>=0.64.0", "wheel", "setuptools"]
+build-backend = "mesonpy"
