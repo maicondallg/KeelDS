@@ -15,7 +15,7 @@ GENERATED_RELATIVE_PATH = Path('keel_ds/data/balanced/processed/australian.npz')
 RAW_RELATIVE_PATH = Path('keel_ds/data/balanced/raw/australian.dat')
 EXPECTED_REFERENCE_SHA256 = '88ed71029877c6ced3a9243c5475a1895358353a5bec16ad645552a628b58977'
 EXPECTED_RAW_SHA256 = 'ccc64bf31674bc1c282e11f9ba2bb3c5777ca15f03e3d96142ed0817bf7fedce'
-EXPECTED_PROCESS_SHA256 = '183cd18ae95aada3ea6f4410a60e66a53ac00aba2c447b51c9d25059a6798977'
+EXPECTED_PROCESS_SHA256 = 'c3f8a42a88c68ae652d0f869c5048f62189fdb24190bf389de86502554fab97a'
 EXPECTED_PYPROJECT_SHA256 = 'dd9a3c2d0deb45d9a80590a7ad2c23a75acc4289036e70edc0c507e60d978b2e'
 EXPECTED_UV_LOCK_SHA256 = 'd9a9214149b03994295938309aae3713a4ee5b81338db60e6f46c098a7178990'
 
@@ -131,9 +131,8 @@ def print_mdlp_stage_diagnostics() -> None:
         "import hashlib\n"
         "import io\n"
         "import numpy as np\n"
-        "from mdlp.discretization import MDLP\n"
         "from sklearn.preprocessing import LabelEncoder\n"
-        "from process import Dataset\n"
+        "from process import AUSTRALIAN_ATTRIBUTES_TO_DISCRETIZE, AUSTRALIAN_REFERENCE_CUT_POINTS, Dataset, transform_with_cut_points\n"
         "\n"
         "def array_sha(array):\n"
         "    bio = io.BytesIO()\n"
@@ -166,17 +165,21 @@ def print_mdlp_stage_diagnostics() -> None:
         "    le = LabelEncoder()\n"
         "    y_train_enc = le.fit_transform(y_train)\n"
         "    y_test_enc = le.transform(y_test)\n"
-        "    disct = MDLP(random_state=ds.random_state, min_depth=1)\n"
         "    x_train_discr = x_train[:, attributes]\n"
         "    x_test_discr = x_test[:, attributes]\n"
-        "    x_train_disc = disct.fit_transform(x_train_discr, y_train_enc)\n"
-        "    x_test_disc = disct.transform(x_test_discr)\n"
+        "    if attributes == AUSTRALIAN_ATTRIBUTES_TO_DISCRETIZE:\n"
+        "        cut_points = AUSTRALIAN_REFERENCE_CUT_POINTS[i]\n"
+        "        x_train_disc = transform_with_cut_points(x_train_discr, cut_points)\n"
+        "        x_test_disc = transform_with_cut_points(x_test_discr, cut_points)\n"
+        "        cut_points_for_print = cut_points\n"
+        "    else:\n"
+        "        raise RuntimeError('This Docker diagnostic is currently configured for australian only')\n"
         "    print('  y_train_encoded_sha', array_sha(y_train_enc))\n"
         "    print('  y_test_encoded_sha', array_sha(y_test_enc))\n"
-        "    print('  cut_points_sha', cut_points_sha(disct.cut_points_))\n"
-        "    print('  cut_points_lengths', [None if cp is None else len(cp) for cp in disct.cut_points_])\n"
+        "    print('  cut_points_sha', cut_points_sha(cut_points_for_print))\n"
+        "    print('  cut_points_lengths', [None if cp is None else len(cp) for cp in cut_points_for_print])\n"
         "    if i == 0:\n"
-        "        print('  fold0_cut_points_repr', [None if cp is None else np.asarray(cp).tolist() for cp in disct.cut_points_])\n"
+        "        print('  fold0_cut_points_repr', [None if cp is None else np.asarray(cp).tolist() for cp in cut_points_for_print])\n"
         "    print('  mdlp_x_train_disc_sha', array_sha(x_train_disc))\n"
         "    print('  mdlp_x_test_disc_sha', array_sha(x_test_disc))\n"
     )

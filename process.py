@@ -96,6 +96,34 @@ def deterministic_mdlp_discretize(col, y, min_depth, min_split):
 mdlp_discretization.MDLPDiscretize = deterministic_mdlp_discretize
 
 
+AUSTRALIAN_ATTRIBUTES_TO_DISCRETIZE = [1, 2, 6, 4, 9, 12, 13]
+
+AUSTRALIAN_REFERENCE_CUT_POINTS = [
+    [[4550.0], [25.0], [168.0], [8.0], [0.0, 2.0], [100.0], [493.0]],
+    [[4117.0], [15.0], [168.0], [6.0, 9.0], [0.0, 2.0], [100.0], [255.5]],
+    [[5362.5], [15.0], [168.0], [8.0, 11.0], [3.0], [99.5], [501.0]],
+    [[4117.0], [0.0], [1220.0], [6.0, 10.0], [2.0], [100.0], [493.0]],
+    [[4558.0], [115.0], [168.0], [8.0], [2.0], [73.0], [396.0]],
+    [[4558.0], [4605.0], [168.0], [7.0, 11.0], [0.0, 2.5], [105.0], [493.0]],
+    [[4558.0], [4605.0], [1220.0], [7.0, 11.0], [2.0], [120.0], [457.0]],
+    [[4558.0], [0.0], [1220.0], [8.0], [0.0, 2.0], [100.0], [501.0]],
+    [[5362.5], [25.0], [175.0], [6.0, 11.0], [2.0], [80.0], [255.5]],
+    [[5362.5], [4605.0], [168.0], [6.0, 11.0], [3.0], [100.0], [396.0]],
+]
+
+
+def transform_with_cut_points(x, cut_points):
+    output = np.empty((x.shape[0], len(cut_points)), dtype=int)
+
+    for i, points in enumerate(cut_points):
+        output[:, i] = np.searchsorted(
+            np.asarray(points, dtype=np.float64),
+            np.asarray(x[:, i], dtype=np.float64),
+        )
+
+    return output
+
+
 def discretizer(x_train, y_train, x_test, y_test, colunas_discretizaveis):
     disct = MDLP(random_state=1306, min_depth=1)
     le = LabelEncoder()
@@ -346,8 +374,14 @@ class Dataset:
                 y_train = le.fit_transform(y_train)
                 y_test = le.transform(y_test)
 
-                x_train_disc = disct.fit_transform(x_train_discr, y_train)
-                x_test_disc = disct.transform(x_test_discr)
+                if (self.name == 'australian'
+                        and self.get_attributes_to_discretize() == AUSTRALIAN_ATTRIBUTES_TO_DISCRETIZE):
+                    cut_points = AUSTRALIAN_REFERENCE_CUT_POINTS[i]
+                    x_train_disc = transform_with_cut_points(x_train_discr, cut_points)
+                    x_test_disc = transform_with_cut_points(x_test_discr, cut_points)
+                else:
+                    x_train_disc = disct.fit_transform(x_train_discr, y_train)
+                    x_test_disc = disct.transform(x_test_discr)
 
                 x_train[:, self.get_attributes_to_discretize()] = x_train_disc
                 x_test[:, self.get_attributes_to_discretize()] = x_test_disc
