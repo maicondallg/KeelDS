@@ -15,6 +15,9 @@ GENERATED_RELATIVE_PATH = Path('keel_ds/data/balanced/processed/australian.npz')
 RAW_RELATIVE_PATH = Path('keel_ds/data/balanced/raw/australian.dat')
 EXPECTED_REFERENCE_SHA256 = '88ed71029877c6ced3a9243c5475a1895358353a5bec16ad645552a628b58977'
 EXPECTED_RAW_SHA256 = 'ccc64bf31674bc1c282e11f9ba2bb3c5777ca15f03e3d96142ed0817bf7fedce'
+EXPECTED_PROCESS_SHA256 = '68bf1f4040eff44d8aa68da10512633ed2a01d3b6c4d710386ed0dc3303ecd2b'
+EXPECTED_PYPROJECT_SHA256 = 'dd9a3c2d0deb45d9a80590a7ad2c23a75acc4289036e70edc0c507e60d978b2e'
+EXPECTED_UV_LOCK_SHA256 = 'd9a9214149b03994295938309aae3713a4ee5b81338db60e6f46c098a7178990'
 
 
 def run(command: list[str], cwd: Path | None = None) -> None:
@@ -24,6 +27,35 @@ def run(command: list[str], cwd: Path | None = None) -> None:
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def print_expected_hash(label: str, path: Path, expected: str) -> bool:
+    if not path.exists():
+        print(label, 'MISSING')
+        print(f'expected_{label}', expected)
+        return False
+
+    actual = sha256(path)
+    ok = actual == expected
+    print(label, actual)
+    print(f'expected_{label}', expected)
+    print(f'{label}_matches_expected', ok)
+    return ok
+
+
+def print_source_git_state() -> None:
+    print('\nSOURCE GIT STATE')
+    for command in (
+        ['git', '-C', str(SOURCE_DIR), 'rev-parse', 'HEAD'],
+        ['git', '-C', str(SOURCE_DIR), 'status', '--short'],
+    ):
+        completed = subprocess.run(command, text=True, capture_output=True)
+        print(f"$ {' '.join(command)}")
+        if completed.stdout:
+            print(completed.stdout.rstrip())
+        if completed.stderr:
+            print(completed.stderr.rstrip())
+        print('exit_code', completed.returncode)
 
 
 def copy_project() -> None:
@@ -135,22 +167,29 @@ def compare_npz(generated_path: Path, reference_path: Path) -> bool:
 
 def main() -> int:
     print_environment()
+    print_source_git_state()
     copy_project()
 
     reference_path = WORK_DIR / REFERENCE_RELATIVE_PATH
     generated_path = WORK_DIR / GENERATED_RELATIVE_PATH
     raw_path = WORK_DIR / RAW_RELATIVE_PATH
+    process_path = WORK_DIR / 'process.py'
+    pyproject_path = WORK_DIR / 'pyproject.toml'
+    uv_lock_path = WORK_DIR / 'uv.lock'
 
     if not reference_path.exists():
         print(f'Missing reference file: {reference_path}', file=sys.stderr)
         print('Make sure australian (Cópia).npz exists before running Docker comparison.', file=sys.stderr)
         return 2
 
+    print('\nPROJECT HASHES')
+    print_expected_hash('process_sha256', process_path, EXPECTED_PROCESS_SHA256)
+    print_expected_hash('pyproject_sha256', pyproject_path, EXPECTED_PYPROJECT_SHA256)
+    print_expected_hash('uv_lock_sha256', uv_lock_path, EXPECTED_UV_LOCK_SHA256)
+
     print('\nINPUT HASHES')
-    print('raw_sha256', sha256(raw_path))
-    print('reference_sha256', sha256(reference_path))
-    print('expected_raw_sha256', EXPECTED_RAW_SHA256)
-    print('expected_reference_sha256', EXPECTED_REFERENCE_SHA256)
+    print_expected_hash('raw_sha256', raw_path, EXPECTED_RAW_SHA256)
+    print_expected_hash('reference_sha256', reference_path, EXPECTED_REFERENCE_SHA256)
 
     run(['uv', 'sync', '--locked'], cwd=WORK_DIR)
 
