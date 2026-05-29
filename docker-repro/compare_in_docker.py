@@ -15,7 +15,7 @@ GENERATED_RELATIVE_PATH = Path('keel_ds/data/balanced/processed/australian.npz')
 RAW_RELATIVE_PATH = Path('keel_ds/data/balanced/raw/australian.dat')
 EXPECTED_REFERENCE_SHA256 = '88ed71029877c6ced3a9243c5475a1895358353a5bec16ad645552a628b58977'
 EXPECTED_RAW_SHA256 = 'ccc64bf31674bc1c282e11f9ba2bb3c5777ca15f03e3d96142ed0817bf7fedce'
-EXPECTED_PROCESS_SHA256 = '68bf1f4040eff44d8aa68da10512633ed2a01d3b6c4d710386ed0dc3303ecd2b'
+EXPECTED_PROCESS_SHA256 = '183cd18ae95aada3ea6f4410a60e66a53ac00aba2c447b51c9d25059a6798977'
 EXPECTED_PYPROJECT_SHA256 = 'dd9a3c2d0deb45d9a80590a7ad2c23a75acc4289036e70edc0c507e60d978b2e'
 EXPECTED_UV_LOCK_SHA256 = 'd9a9214149b03994295938309aae3713a4ee5b81338db60e6f46c098a7178990'
 
@@ -90,6 +90,97 @@ def print_environment() -> None:
     run(['gcc', '--version'])
     run(['g++', '--version'])
     run(['uv', '--version'])
+
+
+def print_installed_binary_hashes() -> None:
+    print('\nINSTALLED BINARY HASHES')
+    binary_hash_script = WORK_DIR / '.docker_binary_hashes.py'
+    binary_hash_script.write_text(
+        "from pathlib import Path\n"
+        "import hashlib\n"
+        "import mdlp\n"
+        "import numpy as np\n"
+        "\n"
+        "def sha(path):\n"
+        "    return hashlib.sha256(Path(path).read_bytes()).hexdigest()\n"
+        "\n"
+        "mdlp_dir = Path(mdlp.__file__).parent\n"
+        "print('mdlp_init', mdlp.__file__)\n"
+        "print('mdlp_init_sha256', sha(mdlp.__file__))\n"
+        "print('mdlp_binary_files', [str(p) for p in sorted(mdlp_dir.glob('_mdlp*.so'))])\n"
+        "for path in sorted(mdlp_dir.glob('_mdlp*.so')):\n"
+        "    print('mdlp_binary_sha256', path.name, sha(path), 'size', path.stat().st_size)\n"
+        "print('numpy_file', np.__file__)\n"
+        "print('numpy_version', np.__version__)\n"
+        "print('numpy_runtime_start')\n"
+        "if hasattr(np, 'show_runtime'):\n"
+        "    np.show_runtime()\n"
+        "else:\n"
+        "    np.__config__.show()\n"
+        "print('numpy_runtime_end')\n"
+    )
+    run(['uv', 'run', 'python', str(binary_hash_script)], cwd=WORK_DIR)
+
+
+def print_mdlp_stage_diagnostics() -> None:
+    print('\nMDLP STAGE DIAGNOSTICS')
+    diagnostics_script = WORK_DIR / '.docker_mdlp_stage_diagnostics.py'
+    diagnostics_script.write_text(
+        "from __future__ import annotations\n"
+        "\n"
+        "import hashlib\n"
+        "import io\n"
+        "import numpy as np\n"
+        "from mdlp.discretization import MDLP\n"
+        "from sklearn.preprocessing import LabelEncoder\n"
+        "from process import Dataset\n"
+        "\n"
+        "def array_sha(array):\n"
+        "    bio = io.BytesIO()\n"
+        "    np.save(bio, np.asarray(array), allow_pickle=False)\n"
+        "    return hashlib.sha256(bio.getvalue()).hexdigest()\n"
+        "\n"
+        "def cut_points_sha(cut_points):\n"
+        "    h = hashlib.sha256()\n"
+        "    for cp in cut_points:\n"
+        "        if cp is None:\n"
+        "            h.update(b'NONE')\n"
+        "            continue\n"
+        "        arr = np.asarray(cp, dtype=np.float64)\n"
+        "        h.update(np.asarray([arr.size], dtype=np.int64).tobytes())\n"
+        "        h.update(np.ascontiguousarray(arr).view(np.uint8).tobytes())\n"
+        "    return h.hexdigest()\n"
+        "\n"
+        "ds = Dataset('australian', 'keel_ds/data/balanced/raw/australian.dat', balance='balanced')\n"
+        "ds.set_attributes_to_discretize()\n"
+        "attributes = ds.get_attributes_to_discretize()\n"
+        "print('attributes_to_discretize', attributes)\n"
+        "ds.split(k_folds=10)\n"
+        "for i, fold in enumerate(ds.data_folds):\n"
+        "    x_train, y_train, x_test, y_test = fold\n"
+        "    print('fold', i)\n"
+        "    print('  pre_x_train_sha', array_sha(x_train))\n"
+        "    print('  pre_y_train_sha', array_sha(y_train))\n"
+        "    print('  pre_x_test_sha', array_sha(x_test))\n"
+        "    print('  pre_y_test_sha', array_sha(y_test))\n"
+        "    le = LabelEncoder()\n"
+        "    y_train_enc = le.fit_transform(y_train)\n"
+        "    y_test_enc = le.transform(y_test)\n"
+        "    disct = MDLP(random_state=ds.random_state, min_depth=1)\n"
+        "    x_train_discr = x_train[:, attributes]\n"
+        "    x_test_discr = x_test[:, attributes]\n"
+        "    x_train_disc = disct.fit_transform(x_train_discr, y_train_enc)\n"
+        "    x_test_disc = disct.transform(x_test_discr)\n"
+        "    print('  y_train_encoded_sha', array_sha(y_train_enc))\n"
+        "    print('  y_test_encoded_sha', array_sha(y_test_enc))\n"
+        "    print('  cut_points_sha', cut_points_sha(disct.cut_points_))\n"
+        "    print('  cut_points_lengths', [None if cp is None else len(cp) for cp in disct.cut_points_])\n"
+        "    if i == 0:\n"
+        "        print('  fold0_cut_points_repr', [None if cp is None else np.asarray(cp).tolist() for cp in disct.cut_points_])\n"
+        "    print('  mdlp_x_train_disc_sha', array_sha(x_train_disc))\n"
+        "    print('  mdlp_x_test_disc_sha', array_sha(x_test_disc))\n"
+    )
+    run(['uv', 'run', 'python', str(diagnostics_script)], cwd=WORK_DIR)
 
 
 def compare_npz(generated_path: Path, reference_path: Path) -> bool:
@@ -208,6 +299,8 @@ def main() -> int:
         "print('sklearn', sklearn.__version__); "
         "print('mdlp', mdlp.__file__)"
     ], cwd=WORK_DIR)
+    print_installed_binary_hashes()
+    print_mdlp_stage_diagnostics()
 
     if generated_path.exists():
         generated_path.unlink()

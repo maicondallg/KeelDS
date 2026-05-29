@@ -7,8 +7,93 @@ from collections import defaultdict
 
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import StratifiedKFold
+import mdlp.discretization as mdlp_discretization
 from mdlp.discretization import MDLP
 # Package from https://github.com/hlin117/mdlp-discretization
+
+
+def slice_entropy(y, start, end):
+    counts = np.bincount(y[start:end])
+    vals = np.true_divide(counts, end - start)
+    vals = vals[vals != 0]
+    return -np.sum(vals * np.log(vals)), len(vals)
+
+
+def find_cut(y, start, end):
+    length = end - start
+    prev_entropy = np.inf
+    k = -1
+
+    for ind in range(start + 1, end):
+        if y[ind - 1] == y[ind]:
+            continue
+
+        first_half = ((ind - start) / length) * slice_entropy(y, start, ind)[0]
+        second_half = ((end - ind) / length) * slice_entropy(y, ind, end)[0]
+        curr_entropy = first_half + second_half
+
+        if prev_entropy > curr_entropy:
+            prev_entropy = curr_entropy
+            k = ind
+
+    return k
+
+
+def reject_split(y, start, end, k):
+    n = end - start
+    entropy1, k1 = slice_entropy(y, start, k)
+    entropy2, k2 = slice_entropy(y, k, end)
+    whole_entropy, k0 = slice_entropy(y, start, end)
+
+    part1 = 1 / n * ((k - start) * entropy1 + (end - k) * entropy2)
+    gain = whole_entropy - part1
+    entropy_diff = k0 * whole_entropy - k1 * entropy1 - k2 * entropy2
+    delta = np.log(np.power(3, k0) - 2) - entropy_diff
+
+    return gain <= 1 / n * (np.log(n - 1) + delta)
+
+
+def get_cut(col, ind):
+    return (col[ind - 1] + col[ind]) / 2
+
+
+def deterministic_mdlp_discretize(col, y, min_depth, min_split):
+    order = np.argsort(col, kind='quicksort')
+    col = col[order]
+    y = y[order]
+
+    cut_points = set()
+    num_samples = len(col)
+    search_intervals = [(0, num_samples, 0)]
+
+    while search_intervals:
+        start, end, depth = search_intervals.pop()
+
+        if end - start <= min_split:
+            break
+
+        k = find_cut(y, start, end)
+
+        if (k == -1) or (depth >= min_depth and reject_split(y, start, end, k)):
+            front = -np.inf if start == 0 else get_cut(col, start)
+            back = np.inf if end == num_samples else get_cut(col, end)
+
+            if front == back:
+                continue
+            if front != -np.inf:
+                cut_points.add(front)
+            if back != np.inf:
+                cut_points.add(back)
+
+            continue
+
+        search_intervals.append((start, k, depth + 1))
+        search_intervals.append((k, end, depth + 1))
+
+    return np.sort(np.array(list(cut_points)))
+
+
+mdlp_discretization.MDLPDiscretize = deterministic_mdlp_discretize
 
 
 def discretizer(x_train, y_train, x_test, y_test, colunas_discretizaveis):
