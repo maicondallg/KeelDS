@@ -25,7 +25,7 @@ keel_ds/data/balanced/processed/australian (Cópia).npz
 From the repository root:
 
 ```bash
-docker build -f docker-repro/Dockerfile -t keelds-process-repro .
+docker build --platform linux/amd64 -f docker-repro/Dockerfile -t keelds-process-repro .
 ```
 
 ## Run
@@ -33,7 +33,7 @@ docker build -f docker-repro/Dockerfile -t keelds-process-repro .
 From the repository root:
 
 ```bash
-docker run --rm -v "$PWD:/src:ro" keelds-process-repro
+docker run --rm --platform linux/amd64 -v "$PWD:/src:ro" keelds-process-repro
 ```
 
 Expected final result:

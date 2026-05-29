@@ -1,4 +1,4 @@
-FROM python:3.11.9-bookworm
+FROM --platform=linux/amd64 python:3.11.9-bookworm
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV UV_PROJECT_ENVIRONMENT=/tmp/keelds-docker-venv

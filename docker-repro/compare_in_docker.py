@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import hashlib
-import os
+import platform
 import shutil
 import subprocess
 import sys
@@ -45,6 +45,7 @@ def print_expected_hash(label: str, path: Path, expected: str) -> bool:
 
 def print_source_git_state() -> None:
     print('\nSOURCE GIT STATE')
+    subprocess.run(['git', 'config', '--global', '--add', 'safe.directory', str(SOURCE_DIR)], check=False)
     for command in (
         ['git', '-C', str(SOURCE_DIR), 'rev-parse', 'HEAD'],
         ['git', '-C', str(SOURCE_DIR), 'status', '--short'],
@@ -81,7 +82,11 @@ def copy_project() -> None:
 
 
 def print_environment() -> None:
+    print('platform_system', platform.system())
+    print('platform_machine', platform.machine())
+    print('platform_platform', platform.platform())
     run(['python', '--version'])
+    run(['uname', '-a'])
     run(['gcc', '--version'])
     run(['g++', '--version'])
     run(['uv', '--version'])
